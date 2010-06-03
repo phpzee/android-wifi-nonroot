@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">If you see this screen, the program terminated. Now please check your wifi settings to see if they worked!</string>
+    <string name="app_name">AndroidWifiNonRoot</string>
+</resources>
