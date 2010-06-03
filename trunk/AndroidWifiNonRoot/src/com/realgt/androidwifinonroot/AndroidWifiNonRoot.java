@@ -1,7 +1,5 @@
 package com.realgt.androidwifinonroot;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.net.wifi.WifiConfiguration;
@@ -9,6 +7,10 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 
+/*
+ * 	Edit values of the SSID_NAME and SHARED_KEY (if you need it)
+ * 	and make sure to place a breakpoint where it says:   int newNetworkId = wifiManager.addNetwork(config);
+ */
 public class AndroidWifiNonRoot extends Activity {
    
 	private static final String TAG = "AndroidWifiNonRoot";
@@ -21,7 +23,7 @@ public class AndroidWifiNonRoot extends Activity {
         WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		WifiConfiguration config = new WifiConfiguration();
 		config.SSID = "\"" + SSID_NAME + "\"";
-//		config.preSharedKey = "\"" + SHARED_KEY+ "\"";
+		config.preSharedKey = "\"" + SHARED_KEY+ "\"";
 		
 		//set to true if your network SSID is not broadcast!
 		config.hiddenSSID = true;
