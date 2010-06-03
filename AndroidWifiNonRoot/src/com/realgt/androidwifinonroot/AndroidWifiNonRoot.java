@@ -14,8 +14,8 @@ import android.util.Log;
 public class AndroidWifiNonRoot extends Activity {
    
 	private static final String TAG = "AndroidWifiNonRoot";
-	private static final String SSID_NAME = "ENTER_NETWORK_SSID_HERE";
-	private static final String SHARED_KEY = "ENTER_SHARED_KEY_HERE";
+	private static final String SSID_NAME = "MY_SSID";
+	//private static final String SHARED_KEY = "MY_SHARED_KEY";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +23,7 @@ public class AndroidWifiNonRoot extends Activity {
         WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		WifiConfiguration config = new WifiConfiguration();
 		config.SSID = "\"" + SSID_NAME + "\"";
-		config.preSharedKey = "\"" + SHARED_KEY+ "\"";
+		//config.preSharedKey = "\"" + SHARED_KEY+ "\"";//if you don't need it you can comment it out!
 		
 		//set to true if your network SSID is not broadcast!
 		config.hiddenSSID = true;
@@ -56,8 +56,10 @@ public class AndroidWifiNonRoot extends Activity {
  * 		**Make sure you enabled USB Debugging on your phone**
  *		Its time to do some live-debug hacking! Place a breakpoint on the line where it says:  
  *			int newNetworkId = wifiManager.addNetwork(config);
- * 		Right-click on the word "config" and select Watch from the menu. Modify the EnterpriseFields such as identity, eap, password, etc.
- * 		by expanding the fields (such as identity, and right clicking on the "value" item and select Change Value.
+ *		Once you've placed the breakpoint, launch Debug mode for this project (right click project name, Debug As->Android Application
+ * 		When it comes to the breakpoint, right-click on the word "config" and select Watch from the menu. 
+ * 		Modify the EnterpriseFields such as identity, eap, password, etc. by expanding the fields 
+ * 		(such as identity, and right clicking on the "value" item and select Change Value.
  * 		
  * 		REMEMBER YOU NEED TO WRAP IDENTITY AND PASSWORD IN QUOTES! so if your login is john@doe.com enter "john@doe.com" in the box (including quotes)	
  * 		Values in the "eap" property need not be wrapped in quotes.
