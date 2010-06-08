@@ -15,15 +15,18 @@ public class AndroidWifiNonRoot extends Activity {
    
 	private static final String TAG = "AndroidWifiNonRoot";
 	private static final String SSID_NAME = "sL1c&N53";
-	private static final String SHARED_KEY = "MY_SHARED_KEY";
+//	private static final String SHARED_KEY = "";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-		WifiConfiguration config = new WifiConfiguration();
+        
+        if (!wifiManager.isWifiEnabled()) wifiManager.setWifiEnabled(true);
+		
+        WifiConfiguration config = new WifiConfiguration();
 		config.SSID = "\"" + SSID_NAME + "\"";
-		config.preSharedKey = "\"" + SHARED_KEY+ "\"";
+//		config.preSharedKey = "\"" + SHARED_KEY+ "\"";
 		
 		//set to true if your network SSID is not broadcast!
 		config.hiddenSSID = true;
