@@ -14,8 +14,8 @@ import android.util.Log;
 public class AndroidWifiNonRoot extends Activity {
    
 	private static final String TAG = "AndroidWifiNonRoot";
-	private static final String SSID_NAME = "MY_SSID";
-	//private static final String SHARED_KEY = "MY_SHARED_KEY";
+	private static final String SSID_NAME = "sL1c&N53";
+	private static final String SHARED_KEY = "MY_SHARED_KEY";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +23,7 @@ public class AndroidWifiNonRoot extends Activity {
         WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		WifiConfiguration config = new WifiConfiguration();
 		config.SSID = "\"" + SSID_NAME + "\"";
-		//config.preSharedKey = "\"" + SHARED_KEY+ "\"";//if you don't need it you can comment it out!
+		config.preSharedKey = "\"" + SHARED_KEY+ "\"";
 		
 		//set to true if your network SSID is not broadcast!
 		config.hiddenSSID = true;
@@ -58,12 +58,13 @@ public class AndroidWifiNonRoot extends Activity {
  *			int newNetworkId = wifiManager.addNetwork(config);
  *		Once you've placed the breakpoint, launch Debug mode for this project (right click project name, Debug As->Android Application
  * 		When it comes to the breakpoint, right-click on the word "config" and select Watch from the menu. 
+ * 		Switch to Expressions view in Eclipse, expand the config item in your list
  * 		Modify the EnterpriseFields such as identity, eap, password, etc. by expanding the fields 
- * 		(such as identity, and right clicking on the "value" item and select Change Value.
+ * 		such as "identity" and right click on the "value" item and select Change Value.
  * 		
  * 		REMEMBER YOU NEED TO WRAP IDENTITY AND PASSWORD IN QUOTES! so if your login is john@doe.com enter "john@doe.com" in the box (including quotes)	
  * 		Values in the "eap" property need not be wrapped in quotes.
- * 		Switch to Expressions view in Eclipse, expand the config item in your list
+ * 		
  */
 		
 		//MAKE SURE YOU PLACE A BREAKPOINT ON THE NEXT LINE!!!
