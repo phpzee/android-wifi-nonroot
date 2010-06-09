@@ -14,7 +14,7 @@ import android.util.Log;
 public class AndroidWifiNonRoot extends Activity {
    
 	private static final String TAG = "AndroidWifiNonRoot";
-	private static final String SSID_NAME = "sL1c&N53";
+	private static final String SSID_NAME = "MY_SSID";
 //	private static final String SHARED_KEY = "";
     @Override
     public void onCreate(Bundle savedInstanceState) {
